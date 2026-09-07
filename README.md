@@ -1,9 +1,32 @@
-# Unity Modular Framework
+# TitanCollectiveStudios.Commons
 
 A modular, extensible framework for Unity designed to simplify gameplay architecture through reusable components, state machines, commands, conditions, tasks, and editor tooling.
 
 The framework follows a composition-over-inheritance approach, allowing systems to remain decoupled, scalable, and easy to maintain.
 
+---
+# Table of Contents
+
+- [Features](#features)
+  - [🎮 Runtime](#-runtime)
+    - [Agents](#agents)
+    - [Commands](#commands)
+    - [Conditions](#conditions)
+    - [Core](#core)
+    - [Datas](#datas)
+    - [Deploy](#deploy)
+    - [Managers](#managers)
+    - [Modules](#modules)
+    - [State Machines](#state-machines)
+    - [Tasks](#tasks)
+    - [Utils](#utils)
+  - [🛠️ Editor](#️-editor)
+    - [Attributes](#attributes)
+- [Installation](#installation)
+- [Philosophy](#philosophy)
+- [Project Structure](#project-structure)
+- [Documentation](#documentation)
+- [License](#license)
 ---
 
 # Features
