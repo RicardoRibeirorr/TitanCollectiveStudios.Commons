@@ -1,5 +1,5 @@
 # TitanCollectiveStudios.Commons
-
+---
 A modular, extensible framework for Unity designed to simplify gameplay architecture through reusable components, state machines, commands, conditions, tasks, and editor tooling.
 
 The framework follows a composition-over-inheritance approach, allowing systems to remain decoupled, scalable, and easy to maintain.
@@ -8,6 +8,8 @@ The framework follows a composition-over-inheritance approach, allowing systems 
 # Table of Contents
 
 - [Features](#features)
+  - [🛠️ Editor](#️-editor)
+    - [Bind](#bind)
   - [🎮 Runtime](#-runtime)
     - [Agents](#agents)
     - [Commands](#commands)
@@ -20,8 +22,6 @@ The framework follows a composition-over-inheritance approach, allowing systems 
     - [State Machines](#state-machines)
     - [Tasks](#tasks)
     - [Utils](#utils)
-  - [🛠️ Editor](#️-editor)
-    - [Attributes](#attributes)
 - [Installation](#installation)
 - [Philosophy](#philosophy)
 - [Project Structure](#project-structure)
@@ -31,6 +31,71 @@ The framework follows a composition-over-inheritance approach, allowing systems 
 
 # Features
 
+## 🛠️ Editor
+
+Tools that improve the Unity Editor workflow.
+
+### Bind
+Simplified version of `getComponent`, that is runned in the editor for fields and properties that work with non-serialized too, making it extremelly light and performance.
+
+✅ AFTER:
+```
+ [Bind] private Rigidbody rb;
+```
+
+Note: To view changes with non serializables or properties, turn on `Debug` mode in inspector.
+
+
+### ColoredComponent
+Specifies a custom color for a component in the Unity Inspector.
+Supports RGB values, predefined values (see `DefaultColor` enum), and HTML color strings.
+
+```
+    [ColoredComponent(DefaultColor.Green)]
+    public class PlayerController : MonoBehaviour {}
+
+    [ColoredComponent(0.2f, 0.8f, 0.2f)]
+    public class PlayerController : MonoBehaviour {}
+
+    [ColoredComponent("#4CAF50")]
+    public class PlayerController : MonoBehaviour {}
+```
+
+### Disabled
+Disables the GUI for the decorated property in the Unity Inspector.
+
+```
+ [SerializeField, Disabled] private int someNum;
+
+ [Disabled] public int someNum;
+```
+
+### ShowIf
+Shows a serialized property if it matches the condition. We advice the usage of "nameOf(yourVariable)" if you rename the variable later, the compiler catches it.
+
+ ```
+     [SerializeField] private bool showSpeed;
+     
+     [ShowIf(nameof(showSpeed))] //if boolean no need for setup the condition
+     [SerializeField] private float _speed
+     
+     //OR
+ 
+     [ShowIf(showSpeed,true)]
+     [SerializeField] private float _speed
+ ```
+
+### HideIf
+Hides a serialized property if it matches the condition. We advice the usage of "nameOf(yourVariable)" if you rename the variable later, the compiler catches it.
+
+ ```
+     [SerializeField] private bool dontShowSpeed;
+     
+     [HideIf(nameof(dontShowSpeed))] //if boolean no need for setup the condition
+     [SerializeField] private float _speed
+ ```
+
+---
 ## 🎮 Runtime
 
 The runtime contains the core systems used during gameplay.
@@ -68,14 +133,6 @@ Task-based execution system for AI, gameplay, or scripted behaviors.
 ### Utils
 Common utility classes and extension methods.
 
----
-
-## 🛠️ Editor
-
-Tools that improve the Unity Editor workflow.
-
-### Attributes
-Custom attributes for simplifying Inspector workflows and reducing boilerplate.
 
 ---
 
