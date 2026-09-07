@@ -1,0 +1,20 @@
+{
+    "name": "MackySoft.SerializeReferenceExtensions.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a0eb33b7bc4615a4cbef5b87900d42c7"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_2019_3_OR_NEWER"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
